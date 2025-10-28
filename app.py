@@ -9,7 +9,7 @@ from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 from db import init_db, register_user, login_user, save_upload, get_user_history
 from gtts import gTTS   # 🎤 Voice summary
-from ui_theme import apply_theme, render_sidebar
+from ui_theme import apply_theme, render_sidebar,st_card
 
 apply_theme()
 render_sidebar()
@@ -210,7 +210,7 @@ def app_main():
     choice = st.sidebar.radio("Go to", [ "📑 Upload & Simplify","👤 Profile","🚨 Risky Terms Detector",  "⏳ My History", "❓ Help & Feedback"])
 
     if choice == "👤 Profile":
-        st.subheader("👤 Your Profile")
+        with st_card("👤 Your Profile")
         st.write(f"**Logged in as:** `{st.session_state.user_email}`")
         if st.button("🚪 Logout"):
             st.session_state.logged_in = False
@@ -218,7 +218,7 @@ def app_main():
             st.success("Logged out. Refresh to login again.")
 
     if choice == "📑 Upload & Simplify":
-        st.subheader("📑 Upload Your Legal Document (PDF)")
+        with st_card("📑 Upload Your Legal Document (PDF)")
         uploaded_file = st.file_uploader("Select a legal PDF", type=["pdf"])
 
         if uploaded_file:
@@ -338,7 +338,7 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
                             )
 
     if choice == "⏳ My History":
-        st.subheader("⏳ Your Uploaded History")
+        with st_card("⏳ Your Uploaded History")
         history = get_user_history(st.session_state.user_email)
         if not history:
             st.info("No uploads yet.")
@@ -348,7 +348,7 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
                     st.text(summary)
                     
     if choice == "❓ Help & Feedback":
-      st.subheader("❓ Help & Feedback")
+      with st_card("❓ Help & Feedback")
       st.markdown("""
       - **About LegalEase**: This tool simplifies legal documents in plain English using AI.
       - **Modes**:
@@ -396,7 +396,7 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
 
         
     if choice == "🚨 Risky Terms Detector":
-        st.subheader("🚨 Risky Terms Detector")
+        with st_card("🚨 Risky Terms Detector")
         uploaded_file = st.file_uploader("Upload a legal PDF", type=["pdf"])
 
         if uploaded_file:
