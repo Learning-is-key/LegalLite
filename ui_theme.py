@@ -1,5 +1,31 @@
 # ui_theme.py
 import streamlit as st
+from contextlib import contextmanager
+
+@contextmanager
+def st_card(title: str = "", icon: str = ""):
+    """Use inside Streamlit to render a floating glass card.
+    Example:
+        with st_card("📄 Upload Section"):
+            st.write("File uploader here.")
+    """
+    st.markdown(
+        f"""
+        <div class="glass-card" style="
+            background: rgba(255,255,255,0.35);
+            border-radius: 16px;
+            padding: 22px 28px;
+            margin-bottom: 18px;
+            box-shadow: 0 12px 24px rgba(19,52,155,0.12);
+            backdrop-filter: blur(14px);
+            transition: all 0.25s ease;
+        ">
+        <h3 style="color:#13349b; margin-top:0;">{icon} {title}</h3>
+        """,
+        unsafe_allow_html=True,
+    )
+    yield
+    st.markdown("</div>", unsafe_allow_html=True)
 
 def apply_theme():
     """Injects global UI/UX theme and animation styles."""
