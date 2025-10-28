@@ -427,13 +427,12 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
 
       with col1:
           with open("Sample_Rental_Agreement.pdf", "rb") as file:
-              st.markdown("""
-                                <style>
-                                div.DownloadButton> button:first-child {
-                                color: #13349b ;          
-                                 }
-                                </style>
-                                """, unsafe_allow_html=True)
+              st.markdown(""" <style>
+              div.DownloadButton> button:first-child {
+              color: #13349b ;          
+              }
+              </style>
+              """, unsafe_allow_html=True)
               st.download_button(
                   label="🏠 Rental", 
                   data=file, 
@@ -442,14 +441,13 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
               )
 
       with col2:
-          with open("Sample_NDA_Agreement.pdf", "rb") as file:
-              st.markdown("""
-                                <style>
-                                div.DownloadButton> button:first-child {
-                                color: #13349b ;          
-                                 }
-                                </style>
-                                """, unsafe_allow_html=True)
+          with open("Sample_NDA_Agreement.pdf", "rb") as fi
+              st.markdown(""" <style>
+              div.DownloadButton> button:first-child {
+              color: #13349b ;          
+              }
+              </style>
+              """, unsafe_allow_html=True)          
               st.download_button(
                   label="🔒 NDA", 
                   data=file, 
@@ -459,13 +457,12 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
 
       with col3:
           with open("Sample_Employment_Contract.pdf", "rb") as file:
-              st.markdown("""
-                                <style>
-                                div.DownloadButton> button:first-child {
-                                color: #13349b ;          
-                                 }
-                                </style>
-                                """, unsafe_allow_html=True)
+              st.markdown(""" <style>
+              div.DownloadButton> button:first-child {
+              color: #13349b ;          
+              }
+              </style>
+              """, unsafe_allow_html=True)
               st.download_button(
                   label="🧑‍💼 Employment", 
                   data=file, 
