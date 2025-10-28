@@ -241,7 +241,7 @@ def app_main():
     choice = st.sidebar.radio("Go to", [ "📑 Upload & Simplify","👤 Profile","🚨 Risky Terms Detector",  "⏳ My History", "❓ Help & Feedback"])
 
     if choice == "👤 Profile":
-       with st_card("👤 Your Profile"):
+        st.subheader("👤 Your Profile")
         st.write(f"**Logged in as:** `{st.session_state.user_email}`")
         st.markdown("""
         <style>
@@ -277,7 +277,7 @@ def app_main():
         st.markdown("""
         <style>
         div.stButton > button:first-child {
-         color: #13349b ;          
+         color: white;          
          }
         </style>
         """, unsafe_allow_html=True)
@@ -396,7 +396,7 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
                             )
 
     if choice == "⏳ My History":
-      with st_card("⏳ Your Uploaded History"):
+        st.subheader("⏳ Your Uploaded History")
         history = get_user_history(st.session_state.user_email)
         if not history:
             st.info("No uploads yet.")
@@ -406,7 +406,7 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
                     st.text(summary)
                     
     if choice == "❓ Help & Feedback":
-     with st_card("❓ Help & Feedback"):
+      st.subheader("❓ Help & Feedback")
       st.markdown("""
       - **About LegalEase**: This tool simplifies legal documents in plain English using AI.
       - **Modes**:
@@ -472,7 +472,7 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
 
         
     if choice == "🚨 Risky Terms Detector":
-      with st_card("🚨 Risky Terms Detector"):
+        st.subheader("🚨 Risky Terms Detector")
         uploaded_file = st.file_uploader("Upload a legal PDF", type=["pdf"])
 
         if uploaded_file:
