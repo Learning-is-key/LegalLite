@@ -3,6 +3,13 @@ import streamlit as st
 from contextlib import contextmanager
 
 @contextmanager
+st.markdown("""
+        <style>
+        div.stButton > button:first-child {
+         color: #13349b ;          
+         }
+        </style>
+        """, unsafe_allow_html=True)
 def st_card(title: str = "", icon: str = ""):
     """Use inside Streamlit to render a floating glass card.
     Example:
