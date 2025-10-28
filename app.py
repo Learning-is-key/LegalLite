@@ -9,7 +9,7 @@ from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 from db import init_db, register_user, login_user, save_upload, get_user_history
 from gtts import gTTS   # 🎤 Voice summary
-from ui_theme import apply_theme, render_sidebar,st_card
+from ui_theme import apply_theme, render_sidebar,st_card,button
 
 apply_theme()
 render_sidebar()
@@ -143,22 +143,26 @@ def choose_mode():
         </style>
         """, unsafe_allow_html=True)
     with col1:
+        button()
         if st.button("🧪 Demo Mode"):
             st.session_state.mode = "Demo Mode"
             st.session_state.mode_chosen = True
 
     with col2:
+        button()
         if st.button("🔐 Use Your API Key"):
             st.session_state.mode = "Use Your Own OpenAI API Key"
             st.session_state.mode_chosen = False  # wait for key entry
 
     with col3:
+        button()
         if st.button("🌐 Hugging Face"):
             st.session_state.mode = "Use Open-Source AI via Hugging Face"
             st.session_state.mode_chosen = True
 
     if st.session_state.mode == "Use Your Own OpenAI API Key" and not st.session_state.mode_chosen:
         st.session_state.api_input = st.text_input("Paste your OpenAI API Key", type="password")
+        button()
         if st.button("➡️ Continue"):
             if st.session_state.api_input.strip() == "":
                 st.warning("Please enter your API key.")
@@ -358,13 +362,7 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
                         save_upload(st.session_state.user_email, uploaded_file.name, simplified)
                         # PDF download
                         pdf_file = generate_pdf(simplified, uploaded_file.name)
-                        st.markdown("""
-                        <style>
-                        div.stButton > button:first-child {
-                        color: #13349b ;          
-                        }
-                        </style>
-                        """, unsafe_allow_html=True)
+                        button()
                         st.download_button(
                             label="📥 Download Summary as PDF",
                             data=pdf_file,
@@ -377,13 +375,7 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
                             with open(audio_file_path, "rb") as audio_file:
                                 audio_bytes = audio_file.read()
                                 st.audio(audio_bytes, format="audio/mp3")
-                                st.markdown("""
-                                <style>
-                                div.stButton > button:first-child {
-                                color: #13349b ;          
-                                 }
-                                </style>
-                                """, unsafe_allow_html=True)
+                                button()
                                 st.download_button(
                                     label="🎧 Download Voice Summary",
                                     data=audio_bytes,
