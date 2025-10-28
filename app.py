@@ -9,6 +9,10 @@ from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 from db import init_db, register_user, login_user, save_upload, get_user_history
 from gtts import gTTS   # 🎤 Voice summary
+from ui_theme import apply_theme, render_sidebar
+
+apply_theme()
+render_sidebar()
 
 # Load Hugging Face token
 try:
