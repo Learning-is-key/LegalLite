@@ -441,7 +441,7 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
               )
 
       with col2:
-          with open("Sample_NDA_Agreement.pdf", "rb") as fi
+          with open("Sample_NDA_Agreement.pdf", "rb") as file:
               st.markdown(""" <style>
               div.DownloadButton> button:first-child {
               color: #13349b ;          
