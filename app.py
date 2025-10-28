@@ -499,4 +499,104 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
 
       ### 👀 How It Works?
       Below is a visual guide to how LegalLite works:
+      """)
+
+      # Keep original image reference; if missing it will error on load, but this matches original behavior.
+      try:
+          st.image("flowchart.jpeg.jpeg", caption="LegalLite App Flow", width =500)
+      except Exception:
+          pass
+
+      st.markdown("### 📂 Download Predefined Demo Files")
+      col1, col2, col3 = st.columns(3)
+
+      with col1:
+          try:
+              with open("Sample_Rental_Agreement.pdf", "rb") as file:
+                  st.download_button(
+                      label="🏠 Rental", 
+                      data=file, 
+                      file_name="Sample_Rental_Agreement.pdf", 
+                      mime="application/pdf"
+                  )
+          except Exception:
+              pass
+
+      with col2:
+          try:
+              with open("Sample_NDA_Agreement.pdf", "rb") as file:
+                  st.download_button(
+                      label="🔒 NDA", 
+                      data=file, 
+                      file_name="Sample_NDA_Agreement.pdf", 
+                      mime="application/pdf"
+                  )
+          except Exception:
+              pass
+
+      with col3:
+          try:
+              with open("Sample_Employment_Contract.pdf", "rb") as file:
+                  st.download_button(
+                      label="🧑‍💼 Employment", 
+                      data=file, 
+                      file_name="Sample_Employment_Contract.pdf", 
+                      mime="application/pdf"
+                  )
+          except Exception:
+              pass
+
+        
+    if choice == "🚨 Risky Terms Detector":
+        st.subheader("🚨 Risky Terms Detector")
+        uploaded_file = st.file_uploader("Upload a legal PDF", type=["pdf"], key="risky_upload")
+
+        if uploaded_file:
+            try:
+                # --- Extract PDF text ---
+                doc = fitz.open(stream=uploaded_file.read(), filetype="pdf")
+                full_text = "".join([page.get_text() for page in doc])
+
+                # --- Step 1: Keyword Scan ---
+                risky = find_risky_terms(full_text)
+                if risky:
+                    st.error("❗Risky Terms Found:")
+                    for term in risky:
+                        st.markdown(f"- **{term}**")
+                else:
+                    st.success("✅ No risky terms detected based on keyword scan.")
+
+                # --- Step 2: Optional AI Analysis ---
+                if st.session_state.mode == "Use Your Own OpenAI API Key" and st.session_state.api_key:
+                    st.button("🤖 Run AI Risk Analysis", key="run_ai_risk_ui", on_click=_set_flag, args=("btn_run_ai_risk",))
+                    if st.session_state.get("btn_run_ai_risk"):
+                        st.session_state["btn_run_ai_risk"] = False
+                        with st.spinner("Running AI risk analysis..."):
+                            ai_result = ai_risk_analysis(full_text, st.session_state.api_key)
+                            st.subheader("🧠 AI Risk Analysis Result")
+                            st.write(ai_result)
+                elif st.session_state.mode != "Use Your Own OpenAI API Key":
+                    st.info("ℹ️ For AI-powered risk analysis, use the 'Use Your Own OpenAI API Key' mode.")
+
+            except Exception as e:
+                st.error(f"❌ Error reading PDF: {e}")
+
+# --- ROUTING ---
+if not st.session_state.logged_in:
+    login_tab, signup_tab = st.tabs(["Login", "Sign Up"])
+
+    with login_tab:
+        login_section()
+    with signup_tab:
+        signup_section()
+
+else:
+    if not st.session_state.mode_chosen:
+        choose_mode()
+    else:
+        app_main()
+
+# --- FOOTER ---
+st.markdown("<hr><p style='text-align: center; color: gray; font-size: 11px;'>⚡DISCLAIMER: LegalLite does not replace professional legal advice. This tool is for accessibility and education only.</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: gray;'>© 2025 LegalLite. Built with care.</p>", unsafe_allow_html=True)
         
