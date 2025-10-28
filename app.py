@@ -135,7 +135,13 @@ def choose_mode():
     # initialize a session variable to hold temporary API input
     if "api_input" not in st.session_state:
         st.session_state.api_input = ""
-
+        st.markdown("""
+        <style>
+        div.stButton > button:first-child {
+         color: #13349b ;          
+         }
+        </style>
+        """, unsafe_allow_html=True)
     with col1:
         if st.button("🧪 Demo Mode"):
             st.session_state.mode = "Demo Mode"
@@ -167,6 +173,13 @@ def signup_section():
         st.subheader("📝 Create an Account")
         email = st.text_input("New Email")
         password = st.text_input("New Password", type="password")
+        st.markdown("""
+        <style>
+        div.stButton > button:first-child {
+         color: #13349b ;          
+         }
+        </style>
+        """, unsafe_allow_html=True)
         if st.button("Sign Up"):
             if register_user(email, hash_password(password)):
                 st.success("Account created! You can now login.")
@@ -207,6 +220,13 @@ def ai_risk_analysis(text, api_key):
 
 # --- MAIN APP ---
 def app_main():
+    st.markdown("""
+        <style>
+        div.stButton > button:first-child {
+         color: #13349b ;          
+         }
+        </style>
+        """, unsafe_allow_html=True)
     if st.button("◀️ Back to Mode Selection"):
         st.session_state.mode_chosen = False
         st.session_state.mode = ""
@@ -219,6 +239,13 @@ def app_main():
     if choice == "👤 Profile":
        with st_card("👤 Your Profile"):
         st.write(f"**Logged in as:** `{st.session_state.user_email}`")
+        st.markdown("""
+        <style>
+        div.stButton > button:first-child {
+         color: #13349b ;          
+         }
+        </style>
+        """, unsafe_allow_html=True)   
         if st.button("🚪 Logout"):
             st.session_state.logged_in = False
             st.session_state.user_email = ""
@@ -243,7 +270,13 @@ def app_main():
             except Exception as e:
                 st.error(f"❌ Error reading PDF: {str(e)}")
                 return
-        
+        st.markdown("""
+        <style>
+        div.stButton > button:first-child {
+         color: #13349b ;          
+         }
+        </style>
+        """, unsafe_allow_html=True)
         if st.button("🧐 Simplify Document"):
                 simplified = None
                 if st.session_state.mode == "Use Your Own OpenAI API Key":
@@ -325,6 +358,13 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
                         save_upload(st.session_state.user_email, uploaded_file.name, simplified)
                         # PDF download
                         pdf_file = generate_pdf(simplified, uploaded_file.name)
+                        st.markdown("""
+                        <style>
+                        div.stButton > button:first-child {
+                        color: #13349b ;          
+                        }
+                        </style>
+                        """, unsafe_allow_html=True)
                         st.download_button(
                             label="📥 Download Summary as PDF",
                             data=pdf_file,
@@ -337,6 +377,13 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
                             with open(audio_file_path, "rb") as audio_file:
                                 audio_bytes = audio_file.read()
                                 st.audio(audio_bytes, format="audio/mp3")
+                                st.markdown("""
+                                <style>
+                                div.stButton > button:first-child {
+                                color: #13349b ;          
+                                 }
+                                </style>
+                                """, unsafe_allow_html=True)
                                 st.download_button(
                                     label="🎧 Download Voice Summary",
                                     data=audio_bytes,
