@@ -364,7 +364,7 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
                         pdf_file = generate_pdf(simplified, uploaded_file.name)
                         st.markdown("""
                                 <style>
-                                div.DownloadButton> button:first-child {
+                                div.stDownloadButton> button:first-child {
                                 color: #13349b ;          
                                  }
                                 </style>
@@ -428,7 +428,7 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
       with col1:
           with open("Sample_Rental_Agreement.pdf", "rb") as file:
               st.markdown(""" <style>
-              div.DownloadButton> button:first-child {
+              div.stDownloadButton> button:first-child {
               color: #13349b ;          
               }
               </style>
@@ -443,7 +443,7 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
       with col2:
           with open("Sample_NDA_Agreement.pdf", "rb") as file:
               st.markdown(""" <style>
-              div.DownloadButton> button:first-child {
+              div.stDownloadButton> button:first-child {
               color: #13349b ;          
               }
               </style>
@@ -458,7 +458,7 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
       with col3:
           with open("Sample_Employment_Contract.pdf", "rb") as file:
               st.markdown(""" <style>
-              div.DownloadButton> button:first-child {
+              div.stDownloadButton> button:first-child {
               color: #13349b ;          
               }
               </style>
