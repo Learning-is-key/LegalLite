@@ -210,7 +210,7 @@ def app_main():
     choice = st.sidebar.radio("Go to", [ "📑 Upload & Simplify","👤 Profile","🚨 Risky Terms Detector",  "⏳ My History", "❓ Help & Feedback"])
 
     if choice == "👤 Profile":
-        with st_card("👤 Your Profile"):
+       with st_card("👤 Your Profile"):
         st.write(f"**Logged in as:** `{st.session_state.user_email}`")
         if st.button("🚪 Logout"):
             st.session_state.logged_in = False
