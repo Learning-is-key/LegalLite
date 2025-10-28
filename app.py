@@ -108,7 +108,14 @@ def login_section():
     with st.container():
         st.subheader("🔐 Login to Your Account")
         email = st.text_input("Email")
-        password = st.text_input("Password", type="password")
+        password = st.text_input("Password", type="password"
+        st.markdown("""
+        <style>
+        div.stButton > button:first-child {
+         color: #13349b ;          
+         }
+        </style>
+        """, unsafe_allow_html=True)
         if st.button("Login"):
             user = login_user(email, hash_password(password))
             if user:
