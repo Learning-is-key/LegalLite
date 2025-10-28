@@ -3,7 +3,8 @@ import streamlit as st
 from contextlib import contextmanager
 
 @contextmanager
-st.markdown("""
+def button():
+ st.markdown("""
         <style>
         div.stButton > button:first-child {
          color: #13349b ;          
