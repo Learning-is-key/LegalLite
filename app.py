@@ -277,7 +277,7 @@ def app_main():
         st.markdown("""
         <style>
         div.stButton > button:first-child {
-         color: white;          
+         color: #13349b;          
          }
         </style>
         """, unsafe_allow_html=True)
