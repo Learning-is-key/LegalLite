@@ -218,7 +218,7 @@ def app_main():
             st.success("Logged out. Refresh to login again.")
 
     if choice == "📑 Upload & Simplify":
-        with st_card("📑 Upload Your Legal Document (PDF)")
+      with st_card("📑 Upload Your Legal Document (PDF)")
         uploaded_file = st.file_uploader("Select a legal PDF", type=["pdf"])
 
         if uploaded_file:
@@ -338,7 +338,7 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
                             )
 
     if choice == "⏳ My History":
-        with st_card("⏳ Your Uploaded History"):
+      with st_card("⏳ Your Uploaded History"):
         history = get_user_history(st.session_state.user_email)
         if not history:
             st.info("No uploads yet.")
@@ -348,7 +348,7 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
                     st.text(summary)
                     
     if choice == "❓ Help & Feedback":
-      with st_card("❓ Help & Feedback"):
+     with st_card("❓ Help & Feedback"):
       st.markdown("""
       - **About LegalEase**: This tool simplifies legal documents in plain English using AI.
       - **Modes**:
@@ -396,7 +396,7 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
 
         
     if choice == "🚨 Risky Terms Detector":
-        with st_card("🚨 Risky Terms Detector"):
+      with st_card("🚨 Risky Terms Detector"):
         uploaded_file = st.file_uploader("Upload a legal PDF", type=["pdf"])
 
         if uploaded_file:
