@@ -256,7 +256,7 @@ def app_main():
             st.success("Logged out. Refresh to login again.")
 
     if choice == "📑 Upload & Simplify":
-      with st_card("📑 Upload Your Legal Document (PDF)"):
+        st.subheader("📑 Upload Your Legal Document (PDF)")
         uploaded_file = st.file_uploader("Select a legal PDF", type=["pdf"])
 
         if uploaded_file:
