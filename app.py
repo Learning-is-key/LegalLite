@@ -362,7 +362,13 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
                         save_upload(st.session_state.user_email, uploaded_file.name, simplified)
                         # PDF download
                         pdf_file = generate_pdf(simplified, uploaded_file.name)
-                        button()
+                        st.markdown("""
+                                <style>
+                                div.download_button > button:first-child {
+                                color: #13349b ;          
+                                 }
+                                </style>
+                                """, unsafe_allow_html=True)
                         st.download_button(
                             label="📥 Download Summary as PDF",
                             data=pdf_file,
@@ -375,7 +381,13 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
                             with open(audio_file_path, "rb") as audio_file:
                                 audio_bytes = audio_file.read()
                                 st.audio(audio_bytes, format="audio/mp3")
-                                button()
+                                st.markdown("""
+                                <style>
+                                 div.stdownload_button> button:first-child {
+                                 color: #13349b ;          
+                                  }
+                                </style>
+                                """, unsafe_allow_html=True)
                                 st.download_button(
                                     label="🎧 Download Voice Summary",
                                     data=audio_bytes,
