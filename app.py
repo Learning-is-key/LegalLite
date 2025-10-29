@@ -112,7 +112,7 @@ def login_section():
         st.markdown("""
         <style>
         div.stButton > button:first-child {
-         color: #13349b ;          
+         color: #0888ff;          
          }
         </style>
         """, unsafe_allow_html=True)
@@ -138,7 +138,7 @@ def choose_mode():
         st.markdown("""
         <style>
         div.stButton > button:first-child {
-         color: #13349b ;          
+         color: #0888ff;          
          }
         </style>
         """, unsafe_allow_html=True)
@@ -180,7 +180,7 @@ def signup_section():
         st.markdown("""
         <style>
         div.stButton > button:first-child {
-         color: #13349b ;          
+         color: #0888ff ;          
          }
         </style>
         """, unsafe_allow_html=True)
@@ -227,7 +227,7 @@ def app_main():
     st.markdown("""
         <style>
         div.stButton > button:first-child {
-         color: #13349b ;          
+         color: #0888ff ;          
          }
         </style>
         """, unsafe_allow_html=True)
@@ -246,7 +246,7 @@ def app_main():
         st.markdown("""
         <style>
         div.stButton > button:first-child {
-         color: #13349b ;          
+         color: #0888ff;          
          }
         </style>
         """, unsafe_allow_html=True)   
@@ -277,7 +277,7 @@ def app_main():
         st.markdown("""
         <style>
         div.stButton > button:first-child {
-         color: #13349b;          
+         color: #0888ff;          
          }
         </style>
         """, unsafe_allow_html=True)
@@ -365,7 +365,7 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
                         st.markdown("""
                                 <style>
                                 div.stDownloadButton> button:first-child {
-                                color: #13349b ;          
+                                color: #0888ff ;          
                                  }
                                 </style>
                                 """, unsafe_allow_html=True)
@@ -384,7 +384,7 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
                                 st.markdown("""
                                 <style>
                                  div.stDownload> button:first-child {
-                                 color: #13349b ;          
+                                 color: #0888ff;          
                                   }
                                 </style>
                                 """, unsafe_allow_html=True)
@@ -429,7 +429,7 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
           with open("Sample_Rental_Agreement.pdf", "rb") as file:
               st.markdown(""" <style>
               div.stDownloadButton> button:first-child {
-              color: #13349b ;          
+              color: #0888ff ;          
               }
               </style>
               """, unsafe_allow_html=True)
@@ -444,7 +444,7 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
           with open("Sample_NDA_Agreement.pdf", "rb") as file:
               st.markdown(""" <style>
               div.stDownloadButton> button:first-child {
-              color: #13349b ;          
+              color: #0888ff;          
               }
               </style>
               """, unsafe_allow_html=True)          
@@ -459,7 +459,7 @@ In short: This contract outlines Priya’s job, salary, rules during and after e
           with open("Sample_Employment_Contract.pdf", "rb") as file:
               st.markdown(""" <style>
               div.stDownloadButton> button:first-child {
-              color: #13349b ;          
+              color: #0888ff ;          
               }
               </style>
               """, unsafe_allow_html=True)
