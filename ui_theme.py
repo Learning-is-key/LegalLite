@@ -7,7 +7,7 @@ def button():
  st.markdown("""
         <style>
         div.stButton > button:first-child {
-         color: #13349b ;          
+         color: #0888ff;          
          }
         </style>
         """, unsafe_allow_html=True)
